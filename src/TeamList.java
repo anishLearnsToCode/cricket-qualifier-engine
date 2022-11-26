@@ -101,6 +101,15 @@ public class TeamList {
         current.team = team;
     }
 
+    public TeamNode find(String teamId) {
+        TeamNode current = this.head;
+        while (current != null) {
+            if (current.team.getTeamId().equals(teamId)) return current;
+            current = current.next;
+        }
+        return null;
+    }
+
     private static final class TeamNode {
         private Team team;
         private TeamNode next;
