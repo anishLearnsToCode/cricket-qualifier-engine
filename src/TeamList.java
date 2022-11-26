@@ -2,12 +2,12 @@ public class TeamList {
     private TeamNode head;
     private int size = 0;
 
-    TeamList () {
+    TeamList() {
         this.head = null;
         this.size = 0;
     }
 
-    TeamList (TeamList other) {
+    TeamList(TeamList other) {
         TeamNode copy = new TeamNode();
         TeamNode head = copy;
         TeamNode otherHead = other.head;
@@ -48,7 +48,7 @@ public class TeamList {
         }
     }
 
-    private boolean isValidIndex (int index) {
+    private boolean isValidIndex(int index) {
         return index >= 0 && index < this.size;
     }
 
@@ -70,13 +70,13 @@ public class TeamList {
         current.next = newNode;
     }
 
-    public void deleteFromStart () {
+    public void deleteFromStart() {
         if (this.size == 0) return;
         this.size--;
         this.head = this.head.next;
     }
 
-    public void deleteFromIndex (int index) throws NoSuchElementException {
+    public void deleteFromIndex(int index) throws NoSuchElementException {
         if (!isValidIndex(index)) {
             throw new NoSuchElementException(index, size - 1);
         }
@@ -92,7 +92,7 @@ public class TeamList {
         current.next = current.next.next;
     }
 
-    public void replaceAtIndex (Team team, int index) {
+    public void replaceAtIndex(Team team, int index) {
         if (!isValidIndex(index)) return;
         TeamNode current = head;
         for (int i = 0 ; i < index ; index++) {
@@ -108,6 +108,11 @@ public class TeamList {
             current = current.next;
         }
         return null;
+    }
+
+    public boolean contains(String teamId) {
+        TeamNode node = find(teamId);
+        return node != null;
     }
 
     private static final class TeamNode {
