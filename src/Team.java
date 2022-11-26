@@ -4,13 +4,13 @@ import java.util.Scanner;
 public class Team implements Groupable {
     private static final Scanner SCANNER = new Scanner(System.in);
 
-    private final String teamId;
-    private final String teamName;
-    private final int gamesPlayed;
-    private final int gamesWon;
-    private final int gamesLost;
-    private final double netRunRate;
-    private final int points;
+    private String teamId;
+    private String teamName;
+    private int gamesPlayed;
+    private int gamesWon;
+    private int gamesLost;
+    private double netRunRate;
+    private int points;
 
     private Team (
             final String teamId,
@@ -30,7 +30,7 @@ public class Team implements Groupable {
         this.points = points;
     }
 
-    Team (Team other, String teamId) {
+    Team (final Team other, final String teamId) {
         this.teamId = teamId;
         this.teamName = other.teamName;
         this.gamesPlayed = other.gamesPlayed;
@@ -78,7 +78,63 @@ public class Team implements Groupable {
     }
 
     @Override
-    public boolean isInTheGroup(Team team) {
+    public boolean isInTheGroup(Team other) {
         return false;
+    }
+
+    public String getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(String teamId) {
+        this.teamId = teamId;
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
+    public int getGamesPlayed() {
+        return gamesPlayed;
+    }
+
+    public void setGamesPlayed(int gamesPlayed) {
+        this.gamesPlayed = gamesPlayed;
+    }
+
+    public int getGamesWon() {
+        return gamesWon;
+    }
+
+    public void setGamesWon(int gamesWon) {
+        this.gamesWon = gamesWon;
+    }
+
+    public int getGamesLost() {
+        return gamesLost;
+    }
+
+    public void setGamesLost(int gamesLost) {
+        this.gamesLost = gamesLost;
+    }
+
+    public double getNetRunRate() {
+        return netRunRate;
+    }
+
+    public void setNetRunRate(double netRunRate) {
+        this.netRunRate = netRunRate;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 }
