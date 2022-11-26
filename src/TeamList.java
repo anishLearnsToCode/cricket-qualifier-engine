@@ -115,6 +115,18 @@ public class TeamList {
         return node != null;
     }
 
+    public boolean equals(TeamList other) {
+        if (other == this) return true;
+        if (this.size != other.size) return false;
+        TeamNode a = this.head, b = other.head;
+        while (a != null) {
+            if (!a.team.equals(b.team)) return false;
+            a = a.next;
+            b = b.next;
+        }
+        return true;
+    }
+
     private static final class TeamNode {
         private Team team;
         private TeamNode next;
