@@ -21,6 +21,14 @@ public class TournamentResults {
         for (String teamId : teamIds) {
             System.out.println(teamStatus(teamId, groupATeams));
         }
+
+        // IV (d) search list for teamID's from user prompt
+        System.out.print("how many team id's would you like to search?: \t");
+        int n = SCANNER.nextInt();
+        while (n-- > 0) {
+            final String teamId = SCANNER.next();
+            groupA.find(teamId);
+        }
     }
 
     private static String teamStatus(String teamId, List<Team> teams) {

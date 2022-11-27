@@ -103,10 +103,16 @@ public class TeamList {
 
     public TeamNode find(String teamId) {
         TeamNode current = this.head;
+        int iterations = 0;
         while (current != null) {
-            if (current.team.getTeamId().equals(teamId)) return current;
+            iterations++;
+            if (current.team.getTeamId().equals(teamId)) {
+                System.out.println("found item in " + iterations + " iterations");
+                return current;
+            }
             current = current.next;
         }
+        System.out.println("failed to find item in " + iterations + " iterations");
         return null;
     }
 
