@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Team implements Groupable {
     private static final Scanner SCANNER = new Scanner(System.in);
 
+    private final String teamGroup;
     private String teamId;
     private String teamName;
     private int gamesPlayed;
@@ -12,7 +13,8 @@ public class Team implements Groupable {
     private double netRunRate;
     private int points;
 
-    private Team (
+    public Team (
+            final String teamGroup,
             final String teamId,
             final String teamName,
             final int gamesPlayed,
@@ -21,6 +23,7 @@ public class Team implements Groupable {
             final double netRunRate,
             final int points
     ) {
+        this.teamGroup = teamGroup;
         this.teamId = teamId;
         this.teamName = teamName;
         this.gamesPlayed = gamesPlayed;
@@ -32,6 +35,7 @@ public class Team implements Groupable {
 
     Team (final Team other, final String teamId) {
         this.teamId = teamId;
+        this.teamGroup = other.teamGroup;
         this.teamName = other.teamName;
         this.gamesPlayed = other.gamesPlayed;
         this.gamesWon = other.gamesWon;
@@ -79,7 +83,7 @@ public class Team implements Groupable {
 
     @Override
     public boolean isInTheGroup(Team other) {
-        return false;
+        return this.teamGroup.equals(other.teamGroup);
     }
 
     public String getTeamId() {

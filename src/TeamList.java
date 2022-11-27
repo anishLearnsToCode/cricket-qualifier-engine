@@ -1,5 +1,5 @@
 public class TeamList {
-    private TeamNode head;
+    public TeamNode head;
     private int size = 0;
 
     TeamList() {
@@ -127,7 +127,7 @@ public class TeamList {
         return true;
     }
 
-    private static final class TeamNode {
+    public static final class TeamNode {
         private Team team;
         private TeamNode next;
 
