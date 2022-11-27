@@ -1,6 +1,6 @@
 public class TeamList {
     public TeamNode head;
-    private int size = 0;
+    private int size;
 
     TeamList() {
         this.head = null;
@@ -116,6 +116,11 @@ public class TeamList {
         return null;
     }
 
+    /**
+     * This contains privacy leak, TeamNode object ca be modified directly
+     * @param teamId unique ID of team
+     * @return boolean value whether he TeamList object contains team with this teamId or not
+     */
     public boolean contains(String teamId) {
         TeamNode node = find(teamId);
         return node != null;
@@ -152,8 +157,9 @@ public class TeamList {
         }
 
         TeamNode(TeamNode other) {
-            this.team = other.team;
-            this.next = other.next;
+            if (other == null) return;
+            this.team = new Team(other.team, other.team.getTeamId());
+            this.next = new TeamNode(other.next);
         }
 
         public TeamNode clone(TeamNode other) {
